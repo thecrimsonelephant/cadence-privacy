@@ -80,4 +80,4 @@ Cadence is not intended for use by individuals under the age of 18.
 
 ## Changes to This Policy
 This policy may be updated as Cadence evolves.
-Significant changes will be reflected by an updated “Last updated” date.# cadence-privacy
+Significant changes will be reflected by an updated “Last updated” date.

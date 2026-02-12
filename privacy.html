@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadence — Privacy Policy & Data Usage</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ========== Color Palette (from Cadence app) ========== */
+    :root {
+      --green: #3F592E;
+      --plumb: #4A2E59;
+      --taupe: #C4B7A6;
+      --cream: #F8F6F3;
+      --white: #FFFFFF;
+      --charcoal: #59572E;
+      --gray: #7A7A7A;
+      --red: #791D1E;
+      --teal: #104B55;
+      --border: #E8E4DF;
+      --shadow: rgba(61, 61, 61, 0.08);
+      --shadow-lg: rgba(61, 61, 61, 0.12);
+    }
+
+    /* ========== Reset & Base ========== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 5rem;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      line-height: 1.7;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ========== Top Bar ========== */
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--white);
+      color: var(--charcoal);
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 2px 12px var(--shadow);
+    }
+
+    .top-bar-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--green);
+    }
+
+    .top-bar-subtitle {
+      font-size: 0.8rem;
+      color: var(--gray);
+      font-weight: 400;
+    }
+
+    .top-bar a.back-link {
+      color: var(--white);
+      background: var(--green);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.4rem 0.9rem;
+      border-radius: 6px;
+      transition: background 0.15s;
+    }
+    .top-bar a.back-link:hover { background: var(--teal); }
+
+    /* ========== Animated Logo ========== */
+    @keyframes colorCycle0 {
+      0%   { stroke: #791D1E; }
+      25%  { stroke: rgba(63, 89, 46, 0.5); }
+      50%  { stroke: #104B55; }
+      75%  { stroke: #C4B7A6; }
+      100% { stroke: #791D1E; }
+    }
+    @keyframes colorCycle1 {
+      0%   { stroke: rgba(63, 89, 46, 0.5); }
+      25%  { stroke: #104B55; }
+      50%  { stroke: #C4B7A6; }
+      75%  { stroke: #791D1E; }
+      100% { stroke: rgba(63, 89, 46, 0.5); }
+    }
+    @keyframes colorCycle2 {
+      0%   { stroke: #104B55; }
+      25%  { stroke: #C4B7A6; }
+      50%  { stroke: #791D1E; }
+      75%  { stroke: rgba(63, 89, 46, 0.5); }
+      100% { stroke: #104B55; }
+    }
+    @keyframes colorCycle3 {
+      0%   { stroke: #C4B7A6; }
+      25%  { stroke: #791D1E; }
+      50%  { stroke: rgba(63, 89, 46, 0.5); }
+      75%  { stroke: #104B55; }
+      100% { stroke: #C4B7A6; }
+    }
+    @keyframes fillCycle {
+      0%   { fill: rgba(63, 89, 46, 0.5); }
+      25%  { fill: #104B55; }
+      50%  { fill: #C4B7A6; }
+      75%  { fill: #791D1E; }
+      100% { fill: rgba(63, 89, 46, 0.5); }
+    }
+
+    .logo-arc-outer { animation: colorCycle3 8s ease-in-out infinite; }
+    .logo-arc-middle { animation: colorCycle2 8s ease-in-out infinite; }
+    .logo-arc-inner { animation: colorCycle0 8s ease-in-out infinite; }
+    .logo-heart { animation: fillCycle 8s ease-in-out infinite; }
+
+    /* ========== Layout ========== */
+    .layout {
+      display: flex;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 2rem;
+      padding: 2rem 1.5rem;
+    }
+
+    /* ========== Sidebar Nav ========== */
+    .sidebar {
+      position: sticky;
+      top: 5rem;
+      flex-shrink: 0;
+      width: 260px;
+      max-height: calc(100vh - 6rem);
+      overflow-y: auto;
+      padding-right: 1rem;
+    }
+
+    .sidebar-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gray);
+      margin-bottom: 0.75rem;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 0.35rem 0.75rem;
+      margin-bottom: 0.125rem;
+      font-size: 0.82rem;
+      color: var(--charcoal);
+      text-decoration: none;
+      border-radius: 6px;
+      border-left: 2px solid transparent;
+      transition: all 0.15s;
+      line-height: 1.4;
+    }
+
+    .sidebar a:hover {
+      background: var(--border);
+      color: var(--green);
+      border-left-color: var(--green);
+    }
+
+    /* ========== Main Content ========== */
+    .content {
+      flex: 1;
+      min-width: 0;
+      max-width: 780px;
+    }
+
+    /* ========== Header Card ========== */
+    .header-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 8px var(--shadow);
+    }
+
+    .header-card h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 0.25rem;
+    }
+
+    .header-card .subtitle {
+      font-size: 0.95rem;
+      color: var(--gray);
+      margin-bottom: 1.25rem;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .meta-item {
+      font-size: 0.85rem;
+    }
+
+    .meta-label {
+      font-weight: 600;
+      color: var(--gray);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .meta-value {
+      color: var(--charcoal);
+    }
+
+    /* ========== Section Cards ========== */
+    .section {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem 2.5rem;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 2px 8px var(--shadow);
+    }
+
+    .section h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .section h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--teal);
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .section h3:first-of-type {
+      margin-top: 0.75rem;
+    }
+
+    .section p {
+      margin-bottom: 0.75rem;
+    }
+
+    .section ul {
+      margin: 0.5rem 0 0.75rem 0;
+      padding-left: 1.25rem;
+    }
+
+    .section li {
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+    }
+
+    .section li::marker {
+      color: var(--taupe);
+    }
+
+    /* ========== Inline Styles ========== */
+    code {
+      font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      color: var(--teal);
+      padding: 0.15em 0.4em;
+      border-radius: 4px;
+      font-size: 0.85em;
+    }
+
+    strong {
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+
+    em {
+      font-style: italic;
+      color: var(--gray);
+    }
+
+    a {
+      color: var(--teal);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: color 0.15s;
+    }
+
+    a:hover {
+      color: var(--green);
+    }
+
+    /* ========== Callout Boxes ========== */
+    .callout {
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .callout-green {
+      background: rgba(63, 89, 46, 0.06);
+      border-left: 3px solid var(--green);
+    }
+
+    .callout-teal {
+      background: rgba(16, 75, 85, 0.05);
+      border-left: 3px solid var(--teal);
+    }
+
+    .callout-plumb {
+      background: rgba(74, 46, 89, 0.05);
+      border-left: 3px solid var(--plumb);
+    }
+
+    .callout-red {
+      background: rgba(121, 29, 30, 0.05);
+      border-left: 3px solid var(--red);
+    }
+
+    /* ========== Badge ========== */
+    .badge {
+      display: inline-block;
+      background: var(--green);
+      color: var(--cream);
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2em 0.6em;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      vertical-align: middle;
+      margin-left: 0.5rem;
+    }
+
+    /* ========== Divider ========== */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 1.25rem 0;
+      border: none;
+    }
+
+    /* ========== Footer ========== */
+    .footer {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      font-size: 0.82rem;
+      color: var(--gray);
+      border-top: 1px solid var(--border);
+      margin-top: 1rem;
+    }
+
+    .footer a {
+      color: var(--teal);
+    }
+
+    /* ========== Mobile Responsive ========== */
+    @media (max-width: 860px) {
+      .sidebar { display: none; }
+      .layout { padding: 1rem; }
+      .section, .header-card { padding: 1.5rem; }
+      .header-card h1 { font-size: 1.4rem; }
+      .header-card svg { width: 40px; height: 40px; }
+      .section h2 { font-size: 1.15rem; }
+    }
+
+    /* ========== Mobile Nav Toggle ========== */
+    .mobile-nav-toggle {
+      display: none;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      margin-bottom: 1rem;
+      width: 100%;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--green);
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .mobile-nav {
+      display: none;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .mobile-nav a {
+      display: block;
+      padding: 0.4rem 0;
+      font-size: 0.85rem;
+      color: var(--charcoal);
+      text-decoration: none;
+    }
+
+    .mobile-nav a:hover { color: var(--green); }
+
+    @media (max-width: 860px) {
+      .mobile-nav-toggle { display: block; }
+      .mobile-nav.open { display: block; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div style="display: flex; align-items: center; gap: 0.75rem;">
+      <svg width="36" height="36" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path class="logo-arc-outer" d="M78,22 A40,40 0 1 0 78,78" fill="none" stroke="#104B55" stroke-width="6" stroke-linecap="round"/>
+        <path class="logo-arc-middle" d="M30,30 A28,28 0 1 1 30,70" fill="none" stroke="#3F592E" stroke-width="6" stroke-linecap="round" opacity="0.5"/>
+        <path class="logo-arc-inner" d="M61,39 A16,16 0 1 0 61,61" fill="none" stroke="#C4B7A6" stroke-width="6" stroke-linecap="round"/>
+        <path class="logo-heart" d="M50,56 C50,56 44,50 44,47 C44,44 46,42 50,46 C54,42 56,44 56,47 C56,50 50,56 50,56 Z" fill="#791D1E"/>
+      </svg>
+      <div>
+        <div class="top-bar-title">Cadence</div>
+        <div class="top-bar-subtitle">Privacy Policy & Data Usage</div>
+      </div>
+    </div>
+    <a class="back-link" href="https://cadence-olive.vercel.app">Back to App</a>
+  </div>
+
+  <!-- Layout -->
+  <div class="layout">
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+      <div class="sidebar-label">On this page</div>
+      <a href="#what-is-cadence">What is Cadence?</a>
+      <a href="#oauth-api-usage">OAuth & API Usage</a>
+      <a href="#oauth-scopes">OAuth Scopes Used</a>
+      <a href="#google-compliance">Google API Compliance</a>
+      <a href="#scope-justification">Scope Justification</a>
+      <a href="#session-duration">Session & Token Handling</a>
+      <a href="#data-protection">Data Protection</a>
+      <a href="#data-sharing">Data Sharing & Third Parties</a>
+      <a href="#no-sale">No Sale of Data</a>
+      <a href="#data-retention">Data Retention & Deletion</a>
+      <a href="#user-rights">Your Rights</a>
+      <a href="#hipaa">HIPAA Notice</a>
+      <a href="#childrens-privacy">Children's Privacy</a>
+      <a href="#policy-changes">Policy Changes</a>
+      <a href="#contact">Contact & Support</a>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="content">
+
+      <!-- Mobile Navigation -->
+      <button class="mobile-nav-toggle" onclick="document.getElementById('mobileNav').classList.toggle('open')">
+        Navigate this page
+      </button>
+      <nav id="mobileNav" class="mobile-nav">
+        <a href="#what-is-cadence">What is Cadence?</a>
+        <a href="#oauth-api-usage">OAuth & API Usage</a>
+        <a href="#oauth-scopes">OAuth Scopes Used</a>
+        <a href="#google-compliance">Google API Compliance</a>
+        <a href="#scope-justification">Scope Justification</a>
+        <a href="#session-duration">Session & Token Handling</a>
+        <a href="#data-protection">Data Protection</a>
+        <a href="#data-sharing">Data Sharing & Third Parties</a>
+        <a href="#no-sale">No Sale of Data</a>
+        <a href="#data-retention">Data Retention & Deletion</a>
+        <a href="#user-rights">Your Rights</a>
+        <a href="#hipaa">HIPAA Notice</a>
+        <a href="#childrens-privacy">Children's Privacy</a>
+        <a href="#policy-changes">Policy Changes</a>
+        <a href="#contact">Contact & Support</a>
+      </nav>
+
+      <!-- Header -->
+      <div class="header-card">
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.25rem;">
+          <svg width="48" height="48" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M78,22 A40,40 0 1 0 78,78" fill="none" stroke="#104B55" stroke-width="6" stroke-linecap="round"/>
+            <path d="M30,30 A28,28 0 1 1 30,70" fill="none" stroke="#3F592E" stroke-width="6" stroke-linecap="round" opacity="0.5"/>
+            <path d="M61,39 A16,16 0 1 0 61,61" fill="none" stroke="#C4B7A6" stroke-width="6" stroke-linecap="round"/>
+            <path d="M50,56 C50,56 44,50 44,47 C44,44 46,42 50,46 C54,42 56,44 56,47 C56,50 50,56 50,56 Z" fill="#791D1E"/>
+          </svg>
+          <div>
+            <h1>Cadence Privacy Policy & Data Usage</h1>
+          </div>
+        </div>
+        <div class="meta-grid">
+          <div class="meta-item">
+            <div class="meta-label">Last Updated</div>
+            <div class="meta-value">12 February 2026</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- What is Cadence? -->
+      <div class="section" id="what-is-cadence">
+        <h2>What is Cadence?</h2>
+        <p>Cadence is a privacy-first personal health logging application designed to help individuals better understand patterns in their body over time. <strong>Cadence does not maintain its own database or long-term server-side storage of user health data.</strong></p>
+        <div class="callout callout-green">Your data remains under your control at all times.</div>
+      </div>
+
+      <!-- Google OAuth & API Usage -->
+      <div class="section" id="oauth-api-usage">
+        <h2>Google OAuth & API Usage</h2>
+        <p>Cadence uses Google OAuth only when you explicitly choose to sync your data with Google Sheets.</p>
+
+        <h3>OAuth is required to:</h3>
+        <ul>
+          <li>Write your entries and settings to your Google Sheet</li>
+          <li>Read your Google Sheet to display dashboards and insights</li>
+        </ul>
+
+        <h3>OAuth is <em>not</em> triggered:</h3>
+        <ul>
+          <li>Automatically</li>
+          <li>On every entry</li>
+          <li>Without user action</li>
+        </ul>
+        <p>You may <a href="https://github.com/thecrimsonelephant/cadence-privacy/blob/main/FAQ.md#i-want-to-leave-cadence" target="_blank" rel="noopener">disconnect your Google Sheet</a> at any time through Settings with a single click.</p>
+      </div>
+
+      <!-- Google OAuth Scopes Used -->
+      <div class="section" id="oauth-scopes">
+        <h2>Google OAuth Scopes Used</h2>
+        <p>Cadence requests the following Google API scope:</p>
+        <p><code>https://www.googleapis.com/auth/spreadsheets</code></p>
+
+        <h3>Why this scope is required</h3>
+        <p>This scope is necessary to:</p>
+        <ul>
+          <li>Create structured health logs in your selected Google Sheet</li>
+          <li>Update existing rows when syncing changes</li>
+          <li>Read previously synced data to generate summaries and insights</li>
+          <li>Restore data and settings preferences if you return to Cadence on another device</li>
+        </ul>
+
+        <h3>Cadence does not:</h3>
+        <ul>
+          <li>Access spreadsheets you have not explicitly connected</li>
+          <li>Read unrelated files or contents</li>
+          <li>Share spreadsheet data with third parties</li>
+        </ul>
+      </div>
+
+      <!-- Google API Compliance -->
+      <div class="section" id="google-compliance">
+        <h2>Compliance With Google API Services User Data Policy</h2>
+        <p>Cadence's use and transfer of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
+      </div>
+
+      <!-- OAuth Scope Justification -->
+      <div class="section" id="scope-justification">
+        <h2>OAuth Scope Justification <span class="badge">For Verification</span></h2>
+        <p>Cadence requires read and write access to Google Sheets because:</p>
+        <ul>
+          <li>Users may edit their data outside of Cadence directly in Google Sheets</li>
+          <li>Cadence must read the sheet to reflect those changes accurately</li>
+          <li>Syncing requires updating existing rows, not append-only access</li>
+          <li>Read-only access would prevent meaningful use of the app</li>
+        </ul>
+        <p>This access is limited to:</p>
+        <ul>
+          <li>The specific spreadsheet chosen by the user</li>
+          <li>The duration of the user's authenticated session (see <a href="#session-duration">Session Duration & Token Handling</a>)</li>
+        </ul>
+      </div>
+
+      <!-- Session Duration & Token Handling -->
+      <div class="section" id="session-duration">
+        <h2>Session Duration & Token Handling</h2>
+        <p>When a user authenticates via Google OAuth, Cadence receives a short-lived access token. This token is:</p>
+        <ul>
+          <li><strong>Stored in the browser's <code>sessionStorage</code></strong> — not in <code>localStorage</code>, cookies, or on any server</li>
+          <li><strong>Valid for up to 1 hour</strong>, as defined by Google's OAuth token lifespan</li>
+          <li><strong>Automatically cleared</strong> when the browser tab or window is closed, as <code>sessionStorage</code> does not persist across browser sessions</li>
+          <li><strong>Cleared after a successful sync</strong> operation completes</li>
+        </ul>
+        <div class="callout callout-teal">Cadence does not refresh, extend, or silently renew OAuth tokens. When a token expires, the user must re-authenticate by clicking "Sync with Google Sheets" again.</div>
+
+        <h3>A session ends when any of the following occurs:</h3>
+        <ul>
+          <li>The OAuth token expires, as defined by Google</li>
+          <li>The user closes the browser tab or window</li>
+          <li>The sync operation completes and the token is cleared</li>
+          <li>The user disconnects their Google Sheet in Settings</li>
+        </ul>
+        <p>Cadence does not store OAuth tokens on any server and does not maintain server-side sessions.</p>
+      </div>
+
+      <!-- How Cadence Protects Your Data -->
+      <div class="section" id="data-protection">
+        <h2>How Cadence Protects Your Data</h2>
+
+        <h3>Encryption in Transit</h3>
+        <p>All communication between your browser and Google's APIs occurs over <strong>HTTPS (TLS encryption)</strong>. Cadence is hosted on Vercel, which enforces HTTPS for all connections. No data is transmitted in plaintext.</p>
+
+        <h3>Browser Storage</h3>
+        <p>Cadence stores user data (entries, settings, saved filters) in the browser's <code>localStorage</code>. This data:</p>
+        <ul>
+          <li>Remains on your device only</li>
+          <li>Is not transmitted to any Cadence server</li>
+          <li>Can be cleared at any time through the app's Settings page or by clearing your browser data</li>
+        </ul>
+        <p>OAuth tokens are stored separately in <code>sessionStorage</code>, which is automatically cleared when the browser tab or window is closed.</p>
+
+        <h3>Token Handling</h3>
+        <ul>
+          <li>OAuth tokens are never stored on a server</li>
+          <li>Tokens exist only in the browser's <code>sessionStorage</code> for the duration of the authenticated session</li>
+          <li>Tokens are used solely to authorize read/write requests to the user's specific Google Sheet</li>
+          <li>Tokens are valid for up to 1 hour as defined by Google, and are not refreshed or renewed by Cadence</li>
+          <li>Cadence clears tokens after sync completion or when the browser session ends</li>
+        </ul>
+
+        <h3>Input Security</h3>
+        <ul>
+          <li>All user text inputs are sanitized to prevent formula injection and cross-site scripting (XSS)</li>
+          <li>Character limits are enforced on all free-text fields</li>
+          <li>Rate limiting is applied to sync actions and form submissions</li>
+        </ul>
+
+        <h3>No Background Data Collection</h3>
+        <ul>
+          <li>Cadence does not sync data in the background</li>
+          <li>Cadence does not collect behavioral or health analytics</li>
+          <li>OAuth is only triggered by explicit user action (clicking "Sync with Google Sheets")</li>
+        </ul>
+      </div>
+
+      <!-- Data Sharing & Third Parties -->
+      <div class="section" id="data-sharing">
+        <h2>Data Sharing & Third Parties</h2>
+        <p>Cadence does not share user health data with any third party. The following services are used in the operation of Cadence:</p>
+
+        <h3>Vercel (Hosting Provider)</h3>
+        <ul>
+          <li><strong>Purpose:</strong> Hosts the Cadence web application and serves static assets</li>
+          <li><strong>Data processed:</strong> Standard web request data (IP address, browser type) for site delivery and security, as handled by Vercel's infrastructure</li>
+          <li><strong>Analytics:</strong> Vercel Analytics is enabled for basic, anonymous page-view metrics. No personal information or health data is included in analytics</li>
+          <li><strong>Vercel's privacy policy applies</strong> to data processed by their infrastructure</li>
+        </ul>
+
+        <h3>Google APIs (OAuth & Google Sheets API v4)</h3>
+        <ul>
+          <li><strong>Purpose:</strong> Authenticates the user and reads/writes data to the user's own Google Sheet</li>
+          <li><strong>Data processed:</strong> Only the health entries, settings, and filters that the user explicitly syncs</li>
+          <li><strong>All API calls are made directly from the user's browser</strong> to Google's servers — Cadence does not proxy or intercept this data</li>
+        </ul>
+
+        <h3>Google Apps Script (Contact Form)</h3>
+        <ul>
+          <li><strong>Purpose:</strong> The contact form at <a href="https://cadence-olive.vercel.app/contact">cadence-olive.vercel.app/contact</a> sends messages to a Google Apps Script, which delivers the submission as an email to the developer and logs it in a private Google Sheet for record-keeping</li>
+          <li><strong>Data collected:</strong> Name, email address, and message content — submitted voluntarily through the contact form only</li>
+          <li><strong>Data storage:</strong> Submissions are recorded in a Google Sheet accessible only to the developer. This is used solely to track and respond to support inquiries. No health data is collected through this form</li>
+          <li><strong>This is the only data that leaves the user's browser and passes through a Cadence-controlled server route</strong> (<code>/api/contact</code>), and it is forwarded immediately to the Google Apps Script without being stored on Cadence's server</li>
+        </ul>
+
+        <h3>Services Cadence Does NOT Use</h3>
+        <ul>
+          <li>No advertising networks</li>
+          <li>No data monetization services</li>
+          <li>No third-party data processors beyond those listed above</li>
+          <li>No social media tracking or pixels</li>
+          <li>No customer data platforms</li>
+          <li>No AI or machine learning services applied to user data</li>
+        </ul>
+      </div>
+
+      <!-- No Sale of Data -->
+      <div class="section" id="no-sale">
+        <h2>No Sale of Data</h2>
+        <div class="callout callout-plumb">
+          <strong>Cadence does not sell, rent, trade, or monetize user data.</strong>
+        </div>
+        <p>No user data — including health entries, settings, Google account information, or contact form submissions — is sold to or shared with third parties for commercial purposes. Cadence has no advertising relationships, data broker partnerships, or revenue derived from user data.</p>
+      </div>
+
+      <!-- Data Retention & Deletion -->
+      <div class="section" id="data-retention">
+        <h2>Data Retention & Deletion</h2>
+
+        <h3>Local Browser Data</h3>
+        <p>Local data (entries, settings, saved filters) is stored in your browser's <code>localStorage</code> and can be deleted at any time by:</p>
+        <ul>
+          <li>Using the "Advanced Options" section in Cadence Settings to reset or delete app data</li>
+          <li>Clearing your browser's storage/cache directly</li>
+        </ul>
+
+        <h3>Google Sheets Data</h3>
+        <p>Google Sheets data can be deleted by:</p>
+        <ul>
+          <li>Disconnecting from within Cadence Settings (removes Cadence metadata from the sheet)</li>
+          <li>Permanently deleting the spreadsheet from your Google Drive</li>
+        </ul>
+        <p>Cadence does not retain copies of your Google Sheets data.</p>
+
+        <h3>Contact Form Submissions</h3>
+        <p>Messages submitted through the contact form are forwarded via Google Apps Script to the developer's email and logged in a private Google Sheet accessible only to the developer. This log is maintained solely for the purpose of tracking and responding to support inquiries. Cadence's server route (<code>/api/contact</code>) forwards the submission immediately and does not store it on the server itself. Users may request deletion of their contact form submissions at any time by <a href="#contact">emailing the developer</a>.</p>
+
+        <h3>Server-Side Logs</h3>
+        <ul>
+          <li><strong>Vercel function logs:</strong> Vercel may retain logs for serverless function invocations (the <code>/api/contact</code> route) as part of its standard infrastructure. These logs may include request metadata such as timestamps and IP addresses. Cadence does not intentionally log or store health data in server logs. See <a href="https://vercel.com/docs/security" target="_blank" rel="noopener">Vercel's data retention policies</a> for details</li>
+          <li><strong>Vercel Analytics:</strong> Anonymous page-view data is collected by Vercel Analytics. This does not include personal information or health data</li>
+          <li><strong>Cadence does not implement custom server-side logging</strong> of user activity, health data, or API errors beyond what Vercel provides by default</li>
+        </ul>
+
+        <h3>What Cadence Does Not Retain</h3>
+        <ul>
+          <li>No health data on any server</li>
+          <li>No OAuth tokens beyond the browser session</li>
+          <li>No user account records (Cadence does not have user accounts)</li>
+          <li>No copies of synced Google Sheets data</li>
+        </ul>
+      </div>
+
+      <!-- Your Rights as a User -->
+      <div class="section" id="user-rights">
+        <h2>Your Rights as a User</h2>
+
+        <h3>Revoke Google Access</h3>
+        <p>You may revoke Cadence's access to your Google Sheet at any time by visiting <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Google Account Permissions</a> and removing Cadence.</p>
+
+        <h3>Delete Your Data</h3>
+        <ul>
+          <li><strong>Browser data:</strong> Use "Advanced Options" in Cadence Settings or clear your browser storage</li>
+          <li><strong>Google Sheets data:</strong> Delete the spreadsheet from Google Drive or remove Cadence's data from within the sheet</li>
+          <li><strong>Contact form submissions:</strong> You may request deletion of any contact form messages by emailing <a href="mailto:theselfstudy8@gmail.com">theselfstudy8@gmail.com</a></li>
+        </ul>
+
+        <h3>Export Your Data</h3>
+        <ul>
+          <li>You can export your data directly from Cadence as a <strong>CSV</strong> or <strong>PDF</strong> at any time</li>
+          <li>You can access your data directly in your Google Sheet, which you own and control</li>
+        </ul>
+
+        <h3>Request Information</h3>
+        <p>You may contact us at any time to ask what data, if any, Cadence holds related to you. Given Cadence's architecture, the answer in most cases is: none — your data lives in your browser and your Google Sheet.</p>
+      </div>
+
+      <!-- HIPAA Notice -->
+      <div class="section" id="hipaa">
+        <h2>HIPAA Notice</h2>
+        <p>Cadence is not a HIPAA-covered entity and does not claim HIPAA compliance. Cadence is a personal health tracking tool and does not aim to replace or provide medical advice, diagnosis, or treatment.</p>
+      </div>
+
+      <!-- Children's Privacy -->
+      <div class="section" id="childrens-privacy">
+        <h2>Children's Privacy</h2>
+        <p>Cadence is not intended for use by individuals under the age of 18.</p>
+      </div>
+
+      <!-- Changes to This Policy -->
+      <div class="section" id="policy-changes">
+        <h2>Changes to This Policy</h2>
+        <p>This policy may be updated as Cadence evolves. Significant changes will be reflected by an updated "Last updated" date.</p>
+      </div>
+
+      <!-- Contact & Support -->
+      <div class="section" id="contact">
+        <h2>Contact & Support</h2>
+        <div class="meta-grid" style="margin-bottom: 1rem;">
+          <div class="meta-item">
+            <div class="meta-label">Developer</div>
+            <div class="meta-value">Winnie Mutunga</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">Location</div>
+            <div class="meta-value">Philadelphia, Pennsylvania, USA</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">Privacy Inquiries</div>
+            <div class="meta-value"><a href="mailto:theselfstudy8@gmail.com">theselfstudy8@gmail.com</a></div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">General Support</div>
+            <div class="meta-value"><a href="mailto:theselfstudy8@gmail.com">theselfstudy8@gmail.com</a></div>
+          </div>
+        </div>
+        <p>You can also reach out through the app: <a href="https://cadence-olive.vercel.app/contact">cadence-olive.vercel.app/contact</a></p>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>Cadence  - Privacy-first health tracking. Created: 18 January 2026.</p>
+    <p><a href="https://cadence-olive.vercel.app">cadence-olive.vercel.app</a></p>
+  </div>
+
+</body>
+</html>
