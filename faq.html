@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadence — Frequently Asked Questions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ========== Color Palette (from Cadence app) ========== */
+    :root {
+      --green: #3F592E;
+      --plumb: #4A2E59;
+      --taupe: #C4B7A6;
+      --cream: #F8F6F3;
+      --white: #FFFFFF;
+      --charcoal: #59572E;
+      --gray: #7A7A7A;
+      --red: #791D1E;
+      --teal: #104B55;
+      --border: #E8E4DF;
+      --shadow: rgba(61, 61, 61, 0.08);
+      --shadow-lg: rgba(61, 61, 61, 0.12);
+    }
+
+    /* ========== Reset & Base ========== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 5rem;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      line-height: 1.7;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ========== Top Bar ========== */
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--white);
+      color: var(--charcoal);
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 2px 12px var(--shadow);
+    }
+
+    .top-bar-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--green);
+    }
+
+    .top-bar-subtitle {
+      font-size: 0.8rem;
+      color: var(--gray);
+      font-weight: 400;
+    }
+
+    .top-bar a.back-link {
+      color: var(--white);
+      background: var(--green);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.4rem 0.9rem;
+      border-radius: 6px;
+      transition: background 0.15s;
+    }
+    .top-bar a.back-link:hover { background: var(--teal); }
+
+    /* ========== Animated Logo ========== */
+    @keyframes colorCycle0 {
+      0%   { stroke: #791D1E; }
+      25%  { stroke: rgba(63, 89, 46, 0.5); }
+      50%  { stroke: #104B55; }
+      75%  { stroke: #C4B7A6; }
+      100% { stroke: #791D1E; }
+    }
+    @keyframes colorCycle1 {
+      0%   { stroke: rgba(63, 89, 46, 0.5); }
+      25%  { stroke: #104B55; }
+      50%  { stroke: #C4B7A6; }
+      75%  { stroke: #791D1E; }
+      100% { stroke: rgba(63, 89, 46, 0.5); }
+    }
+    @keyframes colorCycle2 {
+      0%   { stroke: #104B55; }
+      25%  { stroke: #C4B7A6; }
+      50%  { stroke: #791D1E; }
+      75%  { stroke: rgba(63, 89, 46, 0.5); }
+      100% { stroke: #104B55; }
+    }
+    @keyframes colorCycle3 {
+      0%   { stroke: #C4B7A6; }
+      25%  { stroke: #791D1E; }
+      50%  { stroke: rgba(63, 89, 46, 0.5); }
+      75%  { stroke: #104B55; }
+      100% { stroke: #C4B7A6; }
+    }
+    @keyframes fillCycle {
+      0%   { fill: rgba(63, 89, 46, 0.5); }
+      25%  { fill: #104B55; }
+      50%  { fill: #C4B7A6; }
+      75%  { fill: #791D1E; }
+      100% { fill: rgba(63, 89, 46, 0.5); }
+    }
+
+    .logo-arc-outer { animation: colorCycle3 8s ease-in-out infinite; }
+    .logo-arc-middle { animation: colorCycle2 8s ease-in-out infinite; }
+    .logo-arc-inner { animation: colorCycle0 8s ease-in-out infinite; }
+    .logo-heart { animation: fillCycle 8s ease-in-out infinite; }
+
+    /* ========== Layout ========== */
+    .layout {
+      display: flex;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 2rem;
+      padding: 2rem 1.5rem;
+    }
+
+    /* ========== Sidebar Nav ========== */
+    .sidebar {
+      position: sticky;
+      top: 5rem;
+      flex-shrink: 0;
+      width: 260px;
+      max-height: calc(100vh - 6rem);
+      overflow-y: auto;
+      padding-right: 1rem;
+    }
+
+    .sidebar-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gray);
+      margin-bottom: 0.75rem;
+    }
+
+    .sidebar-group-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--gray);
+      opacity: 0.7;
+      padding-left: 0.75rem;
+      margin-top: 0.75rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 0.35rem 0.75rem;
+      margin-bottom: 0.125rem;
+      font-size: 0.82rem;
+      color: var(--charcoal);
+      text-decoration: none;
+      border-radius: 6px;
+      border-left: 2px solid transparent;
+      transition: all 0.15s;
+      line-height: 1.4;
+    }
+
+    .sidebar a:hover {
+      background: var(--border);
+      color: var(--green);
+      border-left-color: var(--green);
+    }
+
+    /* ========== Main Content ========== */
+    .content {
+      flex: 1;
+      min-width: 0;
+      max-width: 780px;
+    }
+
+    /* ========== Header Card ========== */
+    .header-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 8px var(--shadow);
+    }
+
+    .header-card h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 0.25rem;
+    }
+
+    .header-card .subtitle {
+      font-size: 0.95rem;
+      color: var(--gray);
+      margin-bottom: 1.25rem;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .meta-item {
+      font-size: 0.85rem;
+    }
+
+    .meta-label {
+      font-weight: 600;
+      color: var(--gray);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .meta-value {
+      color: var(--charcoal);
+    }
+
+    /* ========== Section Cards ========== */
+    .section {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem 2.5rem;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 2px 8px var(--shadow);
+    }
+
+    .section h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .section h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--teal);
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .section h3:first-of-type {
+      margin-top: 0.75rem;
+    }
+
+    .section p {
+      margin-bottom: 0.75rem;
+    }
+
+    .section ul, .section ol {
+      margin: 0.5rem 0 0.75rem 0;
+      padding-left: 1.25rem;
+    }
+
+    .section li {
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+    }
+
+    .section li::marker {
+      color: var(--taupe);
+    }
+
+    /* ========== Inline Styles ========== */
+    code {
+      font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      color: var(--teal);
+      padding: 0.15em 0.4em;
+      border-radius: 4px;
+      font-size: 0.85em;
+    }
+
+    strong {
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+
+    em {
+      font-style: italic;
+      color: var(--gray);
+    }
+
+    a {
+      color: var(--teal);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: color 0.15s;
+    }
+
+    a:hover {
+      color: var(--green);
+    }
+
+    /* ========== Callout Boxes ========== */
+    .callout {
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .callout-green {
+      background: rgba(63, 89, 46, 0.06);
+      border-left: 3px solid var(--green);
+    }
+
+    .callout-teal {
+      background: rgba(16, 75, 85, 0.05);
+      border-left: 3px solid var(--teal);
+    }
+
+    .callout-plumb {
+      background: rgba(74, 46, 89, 0.05);
+      border-left: 3px solid var(--plumb);
+    }
+
+    .callout-red {
+      background: rgba(121, 29, 30, 0.05);
+      border-left: 3px solid var(--red);
+    }
+
+    /* ========== Footer ========== */
+    .footer {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      font-size: 0.82rem;
+      color: var(--gray);
+      border-top: 1px solid var(--border);
+      margin-top: 1rem;
+    }
+
+    .footer a {
+      color: var(--teal);
+    }
+
+    /* ========== Mobile Responsive ========== */
+    @media (max-width: 860px) {
+      .sidebar { display: none; }
+      .layout { padding: 1rem; }
+      .section, .header-card { padding: 1.5rem; }
+      .header-card h1 { font-size: 1.4rem; }
+      .header-card svg { width: 40px; height: 40px; }
+      .section h2 { font-size: 1.15rem; }
+    }
+
+    /* ========== Mobile Nav Toggle ========== */
+    .mobile-nav-toggle {
+      display: none;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      margin-bottom: 1rem;
+      width: 100%;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--green);
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .mobile-nav {
+      display: none;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .mobile-nav .mobile-nav-group {
+      margin-bottom: 0.75rem;
+    }
+
+    .mobile-nav .mobile-nav-group-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--gray);
+      margin-bottom: 0.25rem;
+    }
+
+    .mobile-nav a {
+      display: block;
+      padding: 0.4rem 0;
+      font-size: 0.85rem;
+      color: var(--charcoal);
+      text-decoration: none;
+    }
+
+    .mobile-nav a:hover { color: var(--green); }
+
+    @media (max-width: 860px) {
+      .mobile-nav-toggle { display: block; }
+      .mobile-nav.open { display: block; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div style="display: flex; align-items: center; gap: 0.75rem;">
+      <svg width="36" height="36" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path class="logo-arc-outer" d="M78,22 A40,40 0 1 0 78,78" fill="none" stroke="#104B55" stroke-width="6" stroke-linecap="round"/>
+        <path class="logo-arc-middle" d="M30,30 A28,28 0 1 1 30,70" fill="none" stroke="#3F592E" stroke-width="6" stroke-linecap="round" opacity="0.5"/>
+        <path class="logo-arc-inner" d="M61,39 A16,16 0 1 0 61,61" fill="none" stroke="#C4B7A6" stroke-width="6" stroke-linecap="round"/>
+        <path class="logo-heart" d="M50,56 C50,56 44,50 44,47 C44,44 46,42 50,46 C54,42 56,44 56,47 C56,50 50,56 50,56 Z" fill="#791D1E"/>
+      </svg>
+      <div>
+        <div class="top-bar-title">Cadence</div>
+        <div class="top-bar-subtitle">Frequently Asked Questions</div>
+      </div>
+    </div>
+    <a class="back-link" href="https://cadence-olive.vercel.app">Back to App</a>
+  </div>
+
+  <!-- Layout -->
+  <div class="layout">
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+      <div class="sidebar-label">On this page</div>
+
+      <div class="sidebar-group-label">General</div>
+      <a href="#what-is-cadence">What is Cadence?</a>
+      <a href="#who-is-cadence-for">Who is Cadence for?</a>
+      <a href="#where-is-my-data-stored">Where is my data stored?</a>
+      <a href="#is-cadence-hipaa-compliant">HIPAA Compliance</a>
+      <a href="#what-about-privacy">Privacy</a>
+      <a href="#does-cadence-have-access-to-my-google-sheet">Google Sheet Access</a>
+      <a href="#can-i-lose-my-data">Can I lose my data?</a>
+      <a href="#do-i-need-an-account">Do I need an account?</a>
+      <a href="#what-data-does-cadence-collect">What data is collected?</a>
+      <a href="#why-is-cadence-built-this-way">Why built this way?</a>
+
+      <div class="sidebar-group-label">App FAQ</div>
+      <a href="#what-are-these-modes">Cadence modes</a>
+      <a href="#where-do-i-start">Getting started</a>
+      <a href="#how-do-i-connect-a-google-sheet">Connect a Google Sheet</a>
+      <a href="#how-do-i-restore-my-stuff">Restore from sheet</a>
+      <a href="#download-csv">Download CSV</a>
+      <a href="#download-pdf">Download PDF</a>
+
+      <div class="sidebar-group-label">Troubleshooting</div>
+      <a href="#my-google-sheet-isnt-syncing">Sheet not syncing</a>
+      <a href="#sync-buttons-error">Sync button errors</a>
+      <a href="#reset-settings">Reset settings</a>
+      <a href="#i-want-to-leave-cadence">Leaving Cadence</a>
+      <a href="#contact-us">Contact us</a>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="content">
+
+      <!-- Mobile Navigation -->
+      <button class="mobile-nav-toggle" onclick="document.getElementById('mobileNav').classList.toggle('open')">
+        Navigate this page
+      </button>
+      <nav id="mobileNav" class="mobile-nav">
+        <div class="mobile-nav-group">
+          <div class="mobile-nav-group-label">General</div>
+          <a href="#what-is-cadence" onclick="document.getElementById('mobileNav').classList.remove('open')">What is Cadence?</a>
+          <a href="#who-is-cadence-for" onclick="document.getElementById('mobileNav').classList.remove('open')">Who is Cadence for?</a>
+          <a href="#where-is-my-data-stored" onclick="document.getElementById('mobileNav').classList.remove('open')">Where is my data stored?</a>
+          <a href="#is-cadence-hipaa-compliant" onclick="document.getElementById('mobileNav').classList.remove('open')">HIPAA Compliance</a>
+          <a href="#what-about-privacy" onclick="document.getElementById('mobileNav').classList.remove('open')">Privacy</a>
+          <a href="#does-cadence-have-access-to-my-google-sheet" onclick="document.getElementById('mobileNav').classList.remove('open')">Google Sheet Access</a>
+          <a href="#can-i-lose-my-data" onclick="document.getElementById('mobileNav').classList.remove('open')">Can I lose my data?</a>
+          <a href="#do-i-need-an-account" onclick="document.getElementById('mobileNav').classList.remove('open')">Do I need an account?</a>
+          <a href="#what-data-does-cadence-collect" onclick="document.getElementById('mobileNav').classList.remove('open')">What data is collected?</a>
+          <a href="#why-is-cadence-built-this-way" onclick="document.getElementById('mobileNav').classList.remove('open')">Why built this way?</a>
+        </div>
+        <div class="mobile-nav-group">
+          <div class="mobile-nav-group-label">App FAQ</div>
+          <a href="#what-are-these-modes" onclick="document.getElementById('mobileNav').classList.remove('open')">Cadence modes</a>
+          <a href="#where-do-i-start" onclick="document.getElementById('mobileNav').classList.remove('open')">Getting started</a>
+          <a href="#how-do-i-connect-a-google-sheet" onclick="document.getElementById('mobileNav').classList.remove('open')">Connect a Google Sheet</a>
+          <a href="#how-do-i-restore-my-stuff" onclick="document.getElementById('mobileNav').classList.remove('open')">Restore from sheet</a>
+          <a href="#download-csv" onclick="document.getElementById('mobileNav').classList.remove('open')">Download CSV</a>
+          <a href="#download-pdf" onclick="document.getElementById('mobileNav').classList.remove('open')">Download PDF</a>
+        </div>
+        <div class="mobile-nav-group">
+          <div class="mobile-nav-group-label">Troubleshooting</div>
+          <a href="#my-google-sheet-isnt-syncing" onclick="document.getElementById('mobileNav').classList.remove('open')">Sheet not syncing</a>
+          <a href="#sync-buttons-error" onclick="document.getElementById('mobileNav').classList.remove('open')">Sync button errors</a>
+          <a href="#reset-settings" onclick="document.getElementById('mobileNav').classList.remove('open')">Reset settings</a>
+          <a href="#i-want-to-leave-cadence" onclick="document.getElementById('mobileNav').classList.remove('open')">Leaving Cadence</a>
+          <a href="#contact-us" onclick="document.getElementById('mobileNav').classList.remove('open')">Contact us</a>
+        </div>
+      </nav>
+
+      <!-- Header -->
+      <div class="header-card">
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.25rem;">
+          <svg width="48" height="48" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M78,22 A40,40 0 1 0 78,78" fill="none" stroke="#104B55" stroke-width="6" stroke-linecap="round"/>
+            <path d="M30,30 A28,28 0 1 1 30,70" fill="none" stroke="#3F592E" stroke-width="6" stroke-linecap="round" opacity="0.5"/>
+            <path d="M61,39 A16,16 0 1 0 61,61" fill="none" stroke="#C4B7A6" stroke-width="6" stroke-linecap="round"/>
+            <path d="M50,56 C50,56 44,50 44,47 C44,44 46,42 50,46 C54,42 56,44 56,47 C56,50 50,56 50,56 Z" fill="#791D1E"/>
+          </svg>
+          <div>
+            <h1>Frequently Asked Questions</h1>
+          </div>
+        </div>
+        <p class="subtitle">Everything you need to know about using Cadence.</p>
+      </div>
+
+      <!-- ============================================================
+           GENERAL QUESTIONS
+           ============================================================ -->
+      <div class="section" id="general-questions">
+        <h2>General Questions</h2>
+
+        <h3 id="what-is-cadence">What is Cadence?</h3>
+        <p>Cadence is a privacy-first personal health logging app designed to help individuals better understand patterns in their body over time. Cadence does not operate its own backend, database, or servers for storing any data.</p>
+
+        <h3 id="who-is-cadence-for">Who is Cadence for?</h3>
+        <p>Cadence is for anybody who has ever said "that's new, I've never had [insert symptom here]" or "huh. I wonder if these things are related somehow". Cadence helps bring awareness to your bodily cycles, how they can potentially relate to each other, and even helps compare week-to-week and month-to-month data.</p>
+
+        <h3 id="where-is-my-data-stored">Where is my data stored?</h3>
+        <p>Depending on how you use the app, your data is stored either:</p>
+        <ul>
+          <li><em>Locally in your browser</em>, or</li>
+          <li><em>In your own Google Sheet</em>, which you control</li>
+        </ul>
+        <div class="callout callout-teal">See the <a href="#what-are-these-modes">What are these modes</a> FAQ for more information.</div>
+        <p>Cadence has and will never:</p>
+        <ul>
+          <li>Store your health data anywhere other than your authorized and linked Google Sheet</li>
+          <li>Keep copies of your entries</li>
+          <li>Sync your entries outside of your browser or your linked Google Sheet</li>
+          <li>Back up your entries elsewhere</li>
+        </ul>
+
+        <h3 id="is-cadence-hipaa-compliant">Is Cadence HIPAA Compliant?</h3>
+        <p>Cadence is <strong>not</strong> a HIPAA-covered service. HIPAA applies to healthcare providers, health plans, and their contracted service providers. Cadence does not act as a healthcare provider, does not store your health data on its servers, and does not receive or manage protected health information on your behalf.</p>
+        <p>Your data is stored either:</p>
+        <ul>
+          <li>Locally in your own browser, or</li>
+          <li>In your personal Google Sheet, which you control</li>
+        </ul>
+        <p>Because Cadence does not collect, transmit, or retain your health data, HIPAA compliance does not apply in the traditional sense. That said, Cadence is intentionally designed to follow HIPAA-aligned principles, including:</p>
+        <ul>
+          <li>Data minimization</li>
+          <li>User-controlled storage</li>
+          <li>No secondary use of data</li>
+          <li>No advertising or tracking</li>
+        </ul>
+        <div class="callout callout-teal">If you are required to use a HIPAA-compliant system for diagnosing, medical, or clinical purposes, Cadence may not be an appropriate tool for you.</div>
+
+        <h3 id="what-about-privacy">What about privacy?</h3>
+        <p>Please see <a href="privacy.html">our privacy policy</a> to learn more about Cadence's privacy policy and data usage.</p>
+
+        <h3 id="does-cadence-have-access-to-my-google-sheet">Does Cadence have access to my Google Sheet?</h3>
+        <p><strong>Yes,</strong> but within context. Cadence only accesses your Google Sheet when you explicitly click "Sync with Google Sheets" or perform a restore.</p>
+        <p>When connected:</p>
+        <ul>
+          <li>Access happens directly from your browser; authorization is requested each time.</li>
+          <li>Data is written <strong>only</strong> when you click a "Sync with Google Sheets" button.</li>
+          <li>You can revoke access at any time from your Google account.</li>
+        </ul>
+        <div class="callout callout-red"><strong>Note:</strong> Removing your sheet from Cadence disables syncing, but does not revoke authorization in your Google account. If you'd like to completely revoke Cadence's access to your sheet, you can do so from your Google Account at <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">myaccount.google.com/permissions</a>.</div>
+
+        <h3 id="can-i-lose-my-data">Can I lose my data?</h3>
+        <p><strong>Yes.</strong> If you choose local-only storage "Anonymous Mode":</p>
+        <ul>
+          <li>Clearing your browser data <strong>will</strong> remove your entries</li>
+          <li>If your browser crashes, entries <em>may be</em> lost</li>
+          <li>Using a different device <strong>will not</strong> carry data over</li>
+        </ul>
+        <div class="callout callout-teal">We recommend connecting a Google Sheet if you'd like an easier time switching devices or seeing all your data. See the <a href="#how-do-i-connect-a-google-sheet">How do I connect a Google Sheet</a> FAQ.</div>
+
+        <h3 id="do-i-need-an-account">Do I need to use an account to use Cadence?</h3>
+        <p><strong>No.</strong> You can use Cadence without signing in with an account. This is known as "Anonymous Mode" in the app. In Anonymous Mode, data is stored only on your current device.</p>
+        <p>If you choose to sign in and connect a Google Sheet, you can access your data across devices, but you'll need to reconnect your sheet on each new device. If you saved your settings, those will also be retained via the Google Sheet and can be restored on your new device.</p>
+        <div class="callout callout-red"><strong>Please Note:</strong> If you clear your browser history, switch to a different device or browser, or if your preferred browser crashes, <strong>your data may not be retained</strong>. It's always recommended to download a CSV of your data prior to clearing your browser history, switching devices, or updating your browser. See the <a href="#can-i-lose-my-data">Can I lose my data</a> and <a href="#download-csv">Download CSV</a> FAQs for more information.</div>
+
+        <h3 id="what-data-does-cadence-collect">What data does Cadence collect?</h3>
+        <p>The hosting provider may temporarily process standard web request information (such as IP address and browser type) for basic site delivery and security. Cadence collects no health data, no tracking data, and no behavioral analytics.</p>
+
+        <h3 id="why-is-cadence-built-this-way">Why is Cadence built this way?</h3>
+        <div class="callout callout-green">Cadence is designed around a simple idea: <strong>Your data belongs to you.</strong> <em>Always.</em></div>
+      </div>
+
+      <!-- ============================================================
+           APP FAQ
+           ============================================================ -->
+      <div class="section" id="app-faq">
+        <h2>App FAQ</h2>
+
+        <h3 id="what-are-these-modes">What are these modes?</h3>
+        <p>Cadence operates in two distinct ways:</p>
+        <ol>
+          <li>
+            <strong>Signed In &amp; Synced Mode</strong> &mdash;
+            This is the mode name if you have a Google Sheet linked to Cadence. Each time you click one of the "Sync with Google Sheets" buttons around the application, Cadence will push all of your current entries, settings, and saved filters into your Google Sheet for safe storage, and also pull any data from the sheet to make sure everything is up to date. You can forego syncing for 48 hours until you're prompted by the UI to sync.
+            <em>This is the recommended way of using Cadence as this secures your data and ensures your data is safely synced outside of your browser regardless of whether you clear your history or switch to a new device.</em>
+          </li>
+          <li>
+            <strong>Anonymous Mode</strong> &mdash;
+            This is the mode name if you'd rather not link a Google Sheet. All of your data will be stored in your current device's browser. There are some tradeoffs to be made aware of when using this mode. Please visit <a href="#can-i-lose-my-data">Can I lose my data</a> FAQ for more information.
+          </li>
+        </ol>
+
+        <h3 id="where-do-i-start">Where do I start?</h3>
+        <p>When you first visit Cadence, you will be navigated to the landing page. Click "Get Started" when you've read through what you can do with Cadence. You'll be given 2 options:</p>
+        <ul>
+          <li>
+            <strong>Signed In &amp; Synced Mode</strong> &mdash;
+            If you want to start off with a Google Sheet so that you don't have to set it up later, click this option. This means that all of your entries, settings, and filters will be backed up to that Google Sheet.
+          </li>
+          <li>
+            <strong>Anonymous Mode</strong> &mdash;
+            If you want to start off without adding a Google Sheet, click this option. This means that all of your entries, settings, and filters will be kept on the current device you're on.
+          </li>
+        </ul>
+        <div class="callout callout-teal">Make sure that you are the editor of the Google Sheet you'd like linked. That is the account you'll select in popups to authorize Cadence to read to and write from the Google Sheet to save your entries and settings.</div>
+        <div class="callout callout-teal">If you are returning to Cadence with a Google Sheet that already has entries, see the <a href="#how-do-i-restore-my-stuff">How do I restore my stuff</a> FAQ.</div>
+        <div class="callout callout-red"><strong>Please Note:</strong> It's recommended to connect a Google Sheet in the case that your browser crashes, or if you clear your browsing history often. Not doing so can cause data loss. See the <a href="#can-i-lose-my-data">Can I lose my data</a> FAQ for more information.</div>
+        <p>After selecting one of the modes, click the "Continue to Settings" button to continue.</p>
+
+        <h3 id="how-do-i-connect-a-google-sheet">How do I connect a Google Sheet?</h3>
+        <ol>
+          <li>Navigate to the Dashboard by clicking the gear icon on the top right of the page.</li>
+          <li>Locate the "Google Sheets Integration" section. Here, you'll have a space to copy and paste your preferred blank Google Sheet.</li>
+          <li>Click the "Connect a Google Sheet" button, then "Continue" on the popup.</li>
+          <li>Scroll to the bottom of the Settings page and click the "Sync with Google Sheets" button to complete the first sync.</li>
+        </ol>
+        <div class="callout callout-teal">If you've made a mistake after connecting the Google Sheet, click either the "Edit" button to edit the URL. If you want to disconnect and try again, click the "Disconnect" button.</div>
+
+        <h3 id="how-do-i-restore-my-stuff">How do I restore my stuff?</h3>
+        <p>If you have a Google Sheet with entries and are returning to Cadence or switching from one device to another &mdash; welcome back! Here are steps to restore your data:</p>
+        <ol>
+          <li>On the Welcome page, click "Get Started".</li>
+          <li>A popup will show and within the first option "Signed In &amp; Synced Mode", you should see the "Already set up?" highlighted section. Click "restore your settings and entries here" hyperlink.</li>
+          <li>Add your Google Sheet URL to the textbox and then click "Sign In with Google &amp; Restore".</li>
+        </ol>
+        <div class="callout callout-teal">You will be prompted to authorize with your account. Please select the same account that your Google Sheet was created with.</div>
+        <p>Cadence will automatically begin restoring your entries, settings, filters, and even the name of your Google Sheet. When restoration is complete, you'll be routed to the dashboard and ready to make new entries.</p>
+
+        <h3 id="download-csv">I want to download my data as a CSV file</h3>
+        <p>If you have entries and would like to download your data:</p>
+        <ol>
+          <li>Click the three horizontal line menu on the top left of the application. History is the last button under the "Views" section.</li>
+          <li>Locate the blue "Export CSV" button on the upper right of the page, which will download all of your data. This will automatically start the CSV download to your current device which you can store anywhere.</li>
+        </ol>
+        <div class="callout callout-teal">If you're not seeing all of your data, please make sure that the "Show" filter is set to "All Time".</div>
+        <div class="callout callout-teal">If the "Export CSV" button is unclickable, it means you have yet to make any entries, or the time frame you've chosen has no data. Try expanding your date filters or begin by adding an entry.</div>
+
+        <h3 id="download-pdf">I want to download my data as a PDF</h3>
+        <p>If you have entries and would like to download your data as a PDF:</p>
+        <ol>
+          <li>Click the three horizontal line menu on the top left of the application. PDF Export is the first button under the "Reports" section.</li>
+          <li>Select what report period you'd like to see in your PDF (click "All Time" for all data), and which categories you'd like to export to PDF.</li>
+          <li>Scroll down and then click "Generate PDF". This will automatically start a download from the app to your device with the current date.</li>
+        </ol>
+        <div class="callout callout-teal">If the "Generate PDF" button is unclickable, it means you have yet to make any entries.</div>
+        <div class="callout callout-teal">If you have generated a PDF but don't see any data, it may mean that the time frame or categories you have selected have no data.</div>
+      </div>
+
+      <!-- ============================================================
+           TROUBLESHOOTING
+           ============================================================ -->
+      <div class="section" id="troubleshooting">
+        <h2>Troubleshooting</h2>
+
+        <h3 id="my-google-sheet-isnt-syncing">My Google Sheet isn't syncing</h3>
+        <p>If you're not seeing recent entries show up in your Google Sheet, it may be an error in how Cadence is trying to write the information. Try the following:</p>
+        <ol>
+          <li>Refresh the page and click any "Sync with Google Sheets" button around the app.</li>
+          <li>Relink the sheet: Navigate to Cadence Settings by clicking the gear icon on the top right of the page. Find the "Google Sheets Integration" section at the top of the page. Double check that Cadence still has your preferred Google Sheet linked. If not, please link it, then scroll to the bottom of the page and click the "Sync with Google Sheets" button.</li>
+        </ol>
+        <div class="callout callout-teal">If it's still not working, please <a href="#contact-us">contact us</a> with a screenshot of any errors and details on what happened and we'll do our best to fix it.</div>
+
+        <h3 id="sync-buttons-error">I'm clicking the Sync buttons but I'm getting an error</h3>
+        <p>If you're clicking the sync buttons but it's giving you an error, you may be attempting to log in with the incorrect Google Account. Please make sure that the Google Account you have your Google Sheet set up with is the same one you're using to sign in.</p>
+        <div class="callout callout-teal">If it's still not working, please <a href="#contact-us">contact us</a> with a screenshot of the error and details on what happened and we'll do our best to fix it.</div>
+
+        <h3 id="reset-settings">I want to reset all of my settings but save my entries</h3>
+        <p>If you'd like to reset all of your settings, it's as easy as scrolling to the bottom of the Settings page and clicking "Advanced Options".</p>
+        <ul>
+          <li>
+            <strong>Anonymous Mode</strong> &mdash;
+            Clicking "Reset App Settings Only" will clear all of your settings, saved filters, and app preferences. Your entries will remain safe in your browser storage.
+          </li>
+          <li>
+            <strong>Signed in &amp; Synced Mode</strong> &mdash;
+            Clicking "Reset App Settings Only" deletes the saved settings and filters from your Google Sheet. Your current Google Sheet and all data will be retained.
+          </li>
+        </ul>
+        <div class="callout callout-teal">If you'd like to leave Cadence entirely, see the <a href="#i-want-to-leave-cadence">I want to leave Cadence</a> FAQ.</div>
+
+        <h3 id="i-want-to-leave-cadence">I want to leave Cadence</h3>
+        <p>While we're sad to see you leave, we believe all visitors have this right and have tried to make it as easy as possible to leave the app. Simply navigate to the Cadence Settings page and click "Advanced Options" at the very bottom.</p>
+        <ul>
+          <li>
+            <strong>Signed in &amp; Synced Mode</strong> &mdash;
+            To permanently leave Cadence with a Google Sheet linked, click <strong>Delete Device and Sheet Metadata</strong>. This removes all Cadence metadata from your Google Sheet and disables syncing for new entries. Your previously synced entries remain in the sheet. You'll be asked to authorize deletion once more; be sure to click through both popups before navigating away.
+          </li>
+          <li>
+            <strong>Anonymous Mode</strong> &mdash;
+            To permanently leave Cadence without a linked Google Sheet, click <strong>Delete All Data</strong>. This removes all locally saved data (entries, settings, filters) permanently. To save your data first, download it as a CSV or PDF.
+          </li>
+        </ul>
+        <div class="callout callout-red"><strong>Please Note:</strong> If you don't have a Google Sheet linked, all of your data will be removed from the application and your device <strong>permanently</strong>. If you'd like to download and save your entries, see the <a href="#download-csv">Download CSV</a> or <a href="#download-pdf">Download PDF</a> FAQs.</div>
+      </div>
+
+      <!-- ============================================================
+           CONTACT
+           ============================================================ -->
+      <div class="section" id="contact-us">
+        <h2>Contact Us</h2>
+        <h3>Have more questions, or not finding what you're looking for?</h3>
+        <p>Contact us from <a href="https://cadence-olive.vercel.app/contact">within the app here</a>!</p>
+        <div class="meta-grid" style="margin-top: 1rem;">
+          <div class="meta-item">
+            <div class="meta-label">Developer</div>
+            <div class="meta-value">Winnie Mutunga</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">Email</div>
+            <div class="meta-value"><a href="mailto:theselfstudy8@gmail.com">theselfstudy8@gmail.com</a></div>
+          </div>
+        </div>
+        <p style="margin-top: 1rem;">See also: <a href="privacy.html">Privacy Policy</a> &bull; <a href="terms.html">Terms of Service</a></p>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>Cadence &mdash; Privacy-first health tracking.</p>
+    <p><a href="https://cadence-olive.vercel.app">cadence-olive.vercel.app</a></p>
+  </div>
+
+</body>
+</html>
