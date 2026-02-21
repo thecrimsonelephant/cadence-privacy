@@ -437,7 +437,7 @@
         <div class="top-bar-subtitle">Privacy Policy & Data Usage</div>
       </div>
     </div>
-    <a class="back-link" href="https://cadence-olive.vercel.app">Back to App</a>
+    <a class="back-link" href="https://the-self-study.com/cadence/dashboard">Back to App</a>
   </div>
 
   <!-- Layout -->
@@ -609,7 +609,7 @@
         <h2>How Cadence Protects Your Data</h2>
 
         <h3>Encryption in Transit</h3>
-        <p>All communication between your browser and Google's APIs occurs over <strong>HTTPS (TLS encryption)</strong>. Cadence is hosted on Vercel, which enforces HTTPS for all connections. No data is transmitted in plaintext.</p>
+        <p>All communication between your browser and Google's APIs occurs over <strong>HTTPS (TLS encryption)</strong>. Cadence is hosted on GitHub Pages, which enforces HTTPS for all connections. No data is transmitted in plaintext.</p>
 
         <h3>Browser Storage</h3>
         <p>Cadence stores user data (entries, settings, saved filters) in the browser's <code>localStorage</code>. This data:</p>
@@ -649,12 +649,12 @@
         <h2>Data Sharing & Third Parties</h2>
         <p>Cadence does not share user health data with any third party. The following services are used in the operation of Cadence:</p>
 
-        <h3>Vercel (Hosting Provider)</h3>
+        <h3>GitHub Pages (Hosting Provider)</h3>
         <ul>
           <li><strong>Purpose:</strong> Hosts the Cadence web application and serves static assets</li>
-          <li><strong>Data processed:</strong> Standard web request data (IP address, browser type) for site delivery and security, as handled by Vercel's infrastructure</li>
-          <li><strong>Analytics:</strong> Vercel Analytics is enabled for basic, anonymous page-view metrics. No personal information or health data is included in analytics</li>
-          <li><strong>Vercel's privacy policy applies</strong> to data processed by their infrastructure</li>
+          <li><strong>Data processed:</strong> Standard web request data (IP address, browser type) for site delivery and security, as handled by GitHub's infrastructure</li>
+          <li><strong>No analytics are collected</strong> by Cadence</li>
+          <li><strong>GitHub's privacy policy applies</strong> to data processed by their infrastructure</li>
         </ul>
 
         <h3>Google APIs (OAuth & Google Sheets API v4)</h3>
@@ -666,7 +666,7 @@
 
         <h3>Google Apps Script (Contact Form)</h3>
         <ul>
-          <li><strong>Purpose:</strong> The contact form at <a href="https://cadence-olive.vercel.app/contact">cadence-olive.vercel.app/contact</a> sends messages to a Google Apps Script, which delivers the submission as an email to the developer and logs it in a private Google Sheet for record-keeping</li>
+          <li><strong>Purpose:</strong> The contact form at <a href="https://the-self-study.com/cadence/dashboard/contact">the-self-study.com/cadence/dashboard/contact</a> sends messages to a Google Apps Script, which delivers the submission as an email to the developer and logs it in a private Google Sheet for record-keeping</li>
           <li><strong>Data collected:</strong> Name, email address, and message content — submitted voluntarily through the contact form only</li>
           <li><strong>Data storage:</strong> Submissions are recorded in a Google Sheet accessible only to the developer. This is used solely to track and respond to support inquiries. No health data is collected through this form</li>
           <li><strong>This is the only data that leaves the user's browser and passes through a Cadence-controlled server route</strong> (<code>/api/contact</code>), and it is forwarded immediately to the Google Apps Script without being stored on Cadence's server</li>
@@ -716,9 +716,8 @@
 
         <h3>Server-Side Logs</h3>
         <ul>
-          <li><strong>Vercel function logs:</strong> Vercel may retain logs for serverless function invocations (the <code>/api/contact</code> route) as part of its standard infrastructure. These logs may include request metadata such as timestamps and IP addresses. Cadence does not intentionally log or store health data in server logs. See <a href="https://vercel.com/docs/security" target="_blank" rel="noopener">Vercel's data retention policies</a> for details</li>
-          <li><strong>Vercel Analytics:</strong> Anonymous page-view data is collected by Vercel Analytics. This does not include personal information or health data</li>
-          <li><strong>Cadence does not implement custom server-side logging</strong> of user activity, health data, or API errors beyond what Vercel provides by default</li>
+          <li><strong>GitHub Pages logs:</strong> GitHub may retain standard web server logs (such as IP addresses and timestamps) as part of its infrastructure. Cadence does not intentionally log or store health data in server logs. See <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub's privacy statement</a> for details</li>
+          <li><strong>Cadence does not collect any analytics</strong> and does not implement custom server-side logging of user activity, health data, or API errors</li>
         </ul>
 
         <h3>What Cadence Does Not Retain</h3>
@@ -793,7 +792,7 @@
             <div class="meta-value"><a href="mailto:theselfstudy8@gmail.com">theselfstudy8@gmail.com</a></div>
           </div>
         </div>
-        <p>You can also reach out through the app: <a href="https://cadence-olive.vercel.app/contact">cadence-olive.vercel.app/contact</a></p>
+        <p>You can also reach out through the app: <a href="https://the-self-study.com/cadence/dashboard/contact">the-self-study.com/cadence/dashboard/contact</a></p>
       </div>
 
     </main>
@@ -802,7 +801,7 @@
   <!-- Footer -->
   <div class="footer">
     <p>Cadence  - Privacy-first health tracking. Created: 18 January 2026.</p>
-    <p><a href="https://cadence-olive.vercel.app">cadence-olive.vercel.app</a></p>
+    <p><a href="https://the-self-study.com/cadence/dashboard">the-self-study.com/cadence</a></p>
   </div>
 
 </body>
